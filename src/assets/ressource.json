@@ -1,0 +1,32 @@
+{
+    "en": {
+        "header": {
+            "menu1": "About",
+            "menu2": "Portfolio",
+            "menu3": "Contact"
+        },
+        "about": {            
+            "pagetitle": "About",
+            "pageSubTitle": "Learn more about me",            
+            "leftTextBlock": "<h2 id=\"background\">Background</h2><p> Hi ... First paragraph  </p>  <p> Second paragraph</p>  <p> Third paragraph </p>  <p class=\"\"> <a href=\"#\" class=\"btn btn-primary\">  Download my resume (144 KB)  </a>  </p>  <div class=\"container space-between\"></div>  <p></p>  <h2 id=\"professional-experience\">Professional Experience</h2> <p><strong>Software Developer Analyst</strong> | <a href=\"https://www.cofomo.com/en\">Cofomo Quebec</a> (2017-Present)</p> <p><strong>Lead Software Analyst</strong> | <a href=\"https://www.prevhab.com.br/\">Prevhab</a> (2012-2016)</p>  <p><strong>Software Developer</strong> | <a href=\"http://www4.infraero.gov.br/\">Infraero Brazil </a> (2011-2012)</p> <p><strong>Systems Intern</strong> | <a href=\"http://www.mestrainfo.com.br/site/\"> Mestra IT Brazil</a> (2010-2011)</p>",
+            "messageContact": "Let's discuss your next project.",
+            "buttonContact": "Get In Touch"
+          },
+        "portfolio": {
+            "paragraph1": ""
+        },
+        "contact": {
+            "paragraph1": ""
+        },
+        "footer": {
+
+        }
+    },
+    "fr": {
+        "about": {
+            "paragraph1": "",
+            "paragraph2": "",
+            "paragraph3": ""
+        }
+    }
+}

@@ -1,0 +1,63 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    margin: 0;
+    padding: 0;    
+    font-family: helvetica neue,Helvetica,Roboto,Arial,sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #0a0a0a;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Header */
+app-page-header{
+    background-color: #f8f9fa !important
+}
+
+.page-title{
+    background: #4682b4;
+    color: #fefefe;
+    padding: 2rem 0;
+}
+
+.page-title h1{
+    font-size: 3em;
+}
+
+.page-title h4{
+    font-size: 1.5625rem;
+}
+
+.nav-item {
+    color: #4682b4 !important;
+    cursor: pointer;
+}
+
+.nav-item:hover{
+    color: #000 !important; 
+}
+
+.navbar{
+    padding: 1.25em 0;
+}
+
+/* Main Content */
+
+.background-content{
+    padding-top: 4rem;
+    background-color: #fefefe;
+}
+
+.space-between{
+    margin-top: 4rem;
+}
+
+/* Footer */
+footer{
+    background: #1a1a1a;
+    padding: 3.125em 0;
+}
+
+.footer{
+    color: darkgray;
+}

@@ -1,0 +1,23 @@
+<nav class="container-fluid navbar navbar-expand-lg bg-light">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand">
+        <img src="\favicon.ico" class="logo">
+      </a>
+      <span class="navbar-brand">Vitor Menezes</span>
+    </div>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <span class="nav-link" (click)="Navigate('about');"> {{datasource.menu1}}</span>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link" (click)="Navigate('portfolio');">{{datasource.menu2}}</span>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link" (click)="Navigate('contact');">{{datasource.menu3}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
