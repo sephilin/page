@@ -1,6 +1,7 @@
+<app-page-title></app-page-title>
 <section class="background-content container">
     <div class="row">
-        <div class="col-sm-8" [innerHTML]="datasource.leftTextBlock">
+        <div class="col-sm-8" [innerHTML]="model.leftBlock">
         </div>
         <div class="col-sm-4">
             <div class="text-center">
@@ -10,12 +11,12 @@
                 <div>
                     <p>
                         <strong>
-                           {{datasource.messageContact}} 
+                           {{model.messageContact}} 
                         </strong>
                     </p>
                 </div>
                 <a class="btn btn-primary" href="#">
-                    {{datasource.buttonContact}} 
+                    {{model.buttonContact}} 
                 </a>
             </div>
         </div>

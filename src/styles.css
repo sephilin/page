@@ -45,6 +45,7 @@ app-page-header{
 
 .background-content{
     padding-top: 4rem;
+    padding-bottom: 4rem;
     background-color: #fefefe;
 }
 
@@ -55,9 +56,28 @@ app-page-header{
 /* Footer */
 footer{
     background: #1a1a1a;
-    padding: 3.125em 0;
+    padding-top: 3.125em;
 }
 
 .footer{
     color: darkgray;
+}
+
+footer .copyright{
+    border-top: #ccc .0625em solid;
+    margin-top: .9375em;
+    padding: .9375em 0;
+    color: #999;
+}
+
+footer .img-margin {
+    margin: 1.2em;
+}
+
+footer p:first {
+    text-align: justify;
+}
+
+footer .container{
+    margin-bottom: 1rem;
 }

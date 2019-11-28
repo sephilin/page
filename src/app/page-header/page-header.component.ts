@@ -1,38 +1,50 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { EventService } from '../core/services/event-services';
-
-class PageHeaderModel {
-  menu1: string
-  menu2: string
-  menu3: string
-}
+import { Component, OnInit, ChangeDetectorRef, ElementRef } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { NavigateService } from '../core/services/navigate-service';
+import { PageTypes } from '../common/constants/pageTypes';
+import { LanguageService } from '../core/services/language-service';
+import { GenericClassComponent } from '../core/toolbox/generic-class-component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-page-header',
   templateUrl: './page-header.component.html'
 })
-export class PageHeaderComponent implements OnInit {
-  public datasource: PageHeaderModel;
+export class PageHeaderComponent extends GenericClassComponent implements OnInit {
+  public model: any;  
 
-  constructor(private eventService: EventService, private route: ActivatedRoute) { }
+  constructor(private cd: ChangeDetectorRef,
+    private route: ActivatedRoute,
+    private navigate: NavigateService,
+    private languageService: LanguageService,
+    elem: ElementRef) {
+    super(elem);
+
+  }
 
   ngOnInit() {
-    this.datasource = this.route.snapshot.data['dataSourceJson'].en.header as PageHeaderModel;   
+     this.subscribeAll();
+     this.model = this.getRessource(this.route.snapshot)[this.tagNameSelector];
   }
 
-  public Navigate(route: string): void {  
-    switch (route) {
-      case 'about':
-        this.eventService.PageAboutClick();
-        break;
-      case 'portfolio':
-        this.eventService.PagePortfolioClick();
-        break;
-      case 'contact':
-        this.eventService.PageContactClick();
-        break;
-    }
+  ngDestroy() {
+    this.RemovePageSubscriptions();
   }
 
+  private subscribeAll()
+  {
+    this.AddPageSubscriptions((subs : Array<Subscription>) => {
+
+      // Subscription of languages
+      subs.push(this.languageService.getLanguage().subscribe(() => {      
+        this.model = this.getRessource(this.route.snapshot);
+        this.cd.markForCheck();
+      }));    
+
+    });  
+  }
+
+  public Navigate(route: PageTypes): void {
+    this.navigate.NavigateTo(route);
+  }
 }

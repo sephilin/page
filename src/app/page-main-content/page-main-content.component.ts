@@ -1,54 +1,43 @@
-import { Component, OnInit, Input, ComponentFactoryResolver, ViewChild, ViewContainerRef, ComponentFactory } from '@angular/core';
-
-const PageTitle: {
-  [key: string]: {
-    pageTitle: string,
-    pageSubTitle: string
-  }
-} =
-{
-  ["PageAboutComponent"]: {
-    pageTitle: "About",
-    pageSubTitle: "Learn more about me"
-  },
-  ["PagePortfolioComponent"]: {
-    pageTitle: "Portfolio",
-    pageSubTitle: "Browse some of my work"
-  },
-  ["PageContactMeComponent"]: {
-    pageTitle: "Contact",
-    pageSubTitle: "Send a message to get in touch"
-  }
-};
-
+import { Component, OnInit, ComponentFactoryResolver, ViewChild, ViewContainerRef, ComponentFactory, ElementRef } from '@angular/core';
+import { NavigateService } from '../core/services/navigate-service';
+import { GenericClassComponent } from '../core/toolbox/generic-class-component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-page-main-content',
   templateUrl: './page-main-content.component.html'
 })
-export class PageMainContentComponent implements OnInit {
+export class PageMainContentComponent extends GenericClassComponent implements OnInit {
   @ViewChild('componentPlace', { read: ViewContainerRef, static: true }) entry: ViewContainerRef;
-  @Input('load-component') component: any;
 
   componentRef: any;
-  titles: {
-    pageTitle: string,
-    pageSubTitle: string
-  };
 
-  constructor(private resolver: ComponentFactoryResolver) { }
+  constructor(private navigateService: NavigateService,
+    private resolver: ComponentFactoryResolver,
+    elem: ElementRef) {
+    super(elem);
+  }
 
   ngOnInit() {
-    this.titles = PageTitle["PageAboutComponent"];
-  }
-
-  ngOnChanges() {
+    this.subscribeAll();
     this.ComponentFactory();
-    this.SetTitleByComponentRef();
   }
 
-  destroyComponent() {
+  ngDestroy() {
     this.componentRef.destroy();
+    this.RemovePageSubscriptions();
+  }
+
+  private subscribeAll() {
+    this.AddPageSubscriptions((subs: Array<Subscription>) => {
+
+      // Subscribe event click menu
+      subs.push(this.navigateService.registerMenuEventClick().subscribe(() => {
+        this.ComponentFactory();
+      }));
+
+
+    });
   }
 
   private ComponentFactory() {
@@ -56,13 +45,8 @@ export class PageMainContentComponent implements OnInit {
       this.entry.clear();
 
       let factory: ComponentFactory<unknown> = null;
-      factory = this.resolver.resolveComponentFactory(this.component);
+      factory = this.resolver.resolveComponentFactory(this.navigateService.currentComponent);
       this.componentRef = this.entry.createComponent(factory);
     }
-  }
-
-  private SetTitleByComponentRef() {
-    let componentName = Object.getPrototypeOf(this.componentRef.instance).constructor.name;
-    this.titles = PageTitle[componentName];  
   }
 }

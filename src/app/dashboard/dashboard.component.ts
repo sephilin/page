@@ -1,9 +1,6 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { EventService } from '../core/services/event-services';
-import { PageAboutComponent } from '../page-about/page-about.component';
-import { PagePortfolioComponent } from '../page-portfolio/page-portfolio.component';
-import { PageContactMeComponent } from '../page-contact-me/page-contact-me.component';
-import { Subscription } from 'rxjs';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, ElementRef } from '@angular/core';
+import { NavigateService } from '../core/services/navigate-service';
+import { GenericClassComponent } from '../core/toolbox/generic-class-component';
 
 
 @Component({
@@ -11,39 +8,16 @@ import { Subscription } from 'rxjs';
   templateUrl: './dashboard.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DashboardComponent implements OnInit {
-  loaderComponent: any = PageAboutComponent;
-  pageSubscriptions: Array<Subscription>;
+export class DashboardComponent extends GenericClassComponent implements OnInit {
+ 
+  constructor(private cd: ChangeDetectorRef,elem: ElementRef) { 
+      super(elem);
+    }
 
-  constructor(private cd: ChangeDetectorRef, private eventService: EventService) { }
-
-  ngOnInit() {
-    this.registerSubscribes();
+  ngOnInit() {       
   }
 
   ngDestroy() {
-    this.UnsubscribePageSubscriptions();
-  }
-
-  private registerSubscribes() {
-    this.pageSubscriptions = new Array<Subscription>();
-
-    this.pageSubscriptions.push(this.eventService.pageAboutClickObserver
-      .subscribe(() => this.injectComponentAndThrowDetection(PageAboutComponent)));
-
-    this.pageSubscriptions.push(this.eventService.pagePortfolioClickObserver
-      .subscribe(() => this.injectComponentAndThrowDetection(PagePortfolioComponent)));
-
-    this.pageSubscriptions.push(this.eventService.pageContactClickObserver
-      .subscribe(() => this.injectComponentAndThrowDetection(PageContactMeComponent)));
-  }
-
-  private UnsubscribePageSubscriptions() {
-    this.pageSubscriptions.forEach((subs) => { subs.unsubscribe() });
-  }
-
-  private injectComponentAndThrowDetection(component: any) {
-    this.loaderComponent = component;
-    this.cd.markForCheck();
+    this.RemovePageSubscriptions();
   }
 }

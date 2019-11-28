@@ -1,22 +1,47 @@
 {
     "en": {
-        "header": {
+        "app-page-header": {
             "menu1": "About",
             "menu2": "Portfolio",
             "menu3": "Contact"
         },
-        "about": {            
-            "pagetitle": "About",
-            "pageSubTitle": "Learn more about me",            
-            "leftTextBlock": "<h2 id=\"background\">Background</h2><p> Hi ... First paragraph  </p>  <p> Second paragraph</p>  <p> Third paragraph </p>  <p class=\"\"> <a href=\"#\" class=\"btn btn-primary\">  Download my resume (144 KB)  </a>  </p>  <div class=\"container space-between\"></div>  <p></p>  <h2 id=\"professional-experience\">Professional Experience</h2> <p><strong>Software Developer Analyst</strong> | <a href=\"https://www.cofomo.com/en\">Cofomo Quebec</a> (2017-Present)</p> <p><strong>Lead Software Analyst</strong> | <a href=\"https://www.prevhab.com.br/\">Prevhab</a> (2012-2016)</p>  <p><strong>Software Developer</strong> | <a href=\"http://www4.infraero.gov.br/\">Infraero Brazil </a> (2011-2012)</p> <p><strong>Systems Intern</strong> | <a href=\"http://www.mestrainfo.com.br/site/\"> Mestra IT Brazil</a> (2010-2011)</p>",
-            "messageContact": "Let's discuss your next project.",
+        "about": {   
+            "app-page-title" : {
+                "pageTitle" : "About",
+                "pageDescription": "Learn more about me"
+            }, 
+            "paragraphs": [
+                "<h2 id=\"background\">Background</h2>",
+                "<p> I started building static websites in high school, and since then I’ve developed expertise in software development, and business analysis. Today I’m passionate about scalable applications powered by the cloud. I have a good combination of skills and experience that allows me to implement my ideas in many kinds of environments and also deliver well-constructed applications. </p>",
+                "<p> I've been working over these years in great companies and sometimes working on freelance jobs in order to improve my skills, I am always motivated and excited about new programing languages, approaches and coding. ... </p>",
+                "<p> In my time off, I enjoy playing online games with my friends, see a movie or series on Netflix with my wife, maybe on Amazon Video, and try new stuffs like to implement a website using some new technology or mobile development. I live in Quebec City, Canada and like to take advantage of the restaurants and entertainment options in the area. </p> ",
+                "<p class=\"\"><a href=\"#\" class=\"btn btn-primary\">  Download my resume (144 KB)  </a></p>",
+                "<div class=\"container space-between\"></div>",
+                " <p></p>",
+                "<h2 id=\"professional-experience\">Professional Experience</h2>",
+                "<p><strong>Software Developer Analyst</strong> | <a href=\"https://www.cofomo.com/en\">Cofomo</a> as external consultant at <a href=\"https://www.revenuquebec.ca/en/\">Revenu Quebec</a> (2017-Present)</p>",
+                "<p><strong>Lead Software Analyst</strong> | <a href=\"https://www.prevhab.com.br/\">Prevhab</a> (2012-2016)</p> ",
+                "<p><strong>Software Developer Consultant </strong> | <a href=\"https://www.gpnet.com.br/\"> G&P </a> as external consultant at <a href=\"http://www4.infraero.gov.br/\">Infraero Brazil </a> (2011-2012)</p>",
+                "<p><strong>Systems Intern</strong> | <a href=\"http://www.mestrainfo.com.br/site/\"> Mestra IT Brazil</a> (2010-2011)</p>"               
+            ], 
+            "messageContact": "Let's discuss your next project.",           
             "buttonContact": "Get In Touch"
           },
         "portfolio": {
-            "paragraph1": ""
+            "app-page-title": {
+                "pageTitle" : "Portfolio",
+                "pageDescription": "Browse some of my work"
+            },
+            "paragraphs": [
+                "<h2 id=\"background\">Background</h2>"                
+            ]
         },
         "contact": {
-            "paragraph1": ""
+            "app-page-title": {
+                "pageTitle" : "Contact",
+                "pageDescription": "Send a message to get in touch"
+            },
+            "paragraphs": []
         },
         "footer": {
 
