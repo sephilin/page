@@ -1,8 +1,8 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NavigateService } from '../core/services/navigate-service';
-import { GenericClassComponent } from '../core/toolbox/generic-class-component';
-import { PageNames } from '../common/constants/pageNames';
+import { NavigateService } from '../../core/services/navigate-service';
+import { GenericClassComponent } from '../../core/toolbox/generic-class-component';
+import { PageNames } from '../../common/constants/pageNames';
 
 @Component({
   selector: 'app-page-footer',
@@ -16,12 +16,7 @@ export class PageFooterComponent extends GenericClassComponent  implements OnIni
     super(elem);
    }
 
-  ngOnInit() {
-   
-    let info = this.getRessource(this.route.snapshot)[PageNames.about];
-
-    console.log(info.paragraphs[1]);
-
+  ngOnInit() {       
   }
 
   public get textFooter() : string {

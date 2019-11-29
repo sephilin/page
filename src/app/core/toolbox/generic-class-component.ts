@@ -2,11 +2,13 @@ import { Subscription } from 'rxjs';
 import { Languages } from 'src/app/common/constants/languages';
 import { ElementRef } from '@angular/core';
 import { ActivatedRouteSnapshot } from '@angular/router';
+import { LanguageService } from '../services/language-service';
 
 export abstract class GenericClassComponent {
 
-    public readonly dataSourceName: string = "dataSourceJson";
-    public language: Languages = "en";
+    private language: Languages = "en";
+    private readonly dataSourceName: string = "dataSourceJson";  
+
     public tagNameSelector: string;
 
     private pageSubscriptions: Array<Subscription>;
@@ -25,6 +27,11 @@ export abstract class GenericClassComponent {
     }
 
     public getRessource(snapshot: ActivatedRouteSnapshot): any{
+
         return snapshot.data[this.dataSourceName][this.language];
     }
+
+    public SetRessourceLanguage(lang: string){
+        this.language = lang as Languages;        
+    }   
 }

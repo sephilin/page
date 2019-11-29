@@ -1,6 +1,6 @@
 import { Component, OnInit, ComponentFactoryResolver, ViewChild, ViewContainerRef, ComponentFactory, ElementRef } from '@angular/core';
-import { NavigateService } from '../core/services/navigate-service';
-import { GenericClassComponent } from '../core/toolbox/generic-class-component';
+import { NavigateService } from '../../core/services/navigate-service';
+import { GenericClassComponent } from '../../core/toolbox/generic-class-component';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -35,7 +35,6 @@ export class PageMainContentComponent extends GenericClassComponent implements O
       subs.push(this.navigateService.registerMenuEventClick().subscribe(() => {
         this.ComponentFactory();
       }));
-
 
     });
   }

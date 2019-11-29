@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, ElementRef } from '@angular/core';
-import { NavigateService } from '../core/services/navigate-service';
-import { GenericClassComponent } from '../core/toolbox/generic-class-component';
+import { LanguageService } from '../core/services/language-service';
+import { Languages } from '../common/constants/languages';
 
 
 @Component({
@@ -8,16 +8,19 @@ import { GenericClassComponent } from '../core/toolbox/generic-class-component';
   templateUrl: './dashboard.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DashboardComponent extends GenericClassComponent implements OnInit {
- 
-  constructor(private cd: ChangeDetectorRef,elem: ElementRef) { 
-      super(elem);
-    }
+export class DashboardComponent implements OnInit {
 
-  ngOnInit() {       
+  constructor(private cd: ChangeDetectorRef,
+    private languageService: LanguageService   
+    ) {    
   }
 
-  ngDestroy() {
-    this.RemovePageSubscriptions();
+  ngOnInit() { }
+
+  ngDestroy() { }
+
+  public changeLanguage(lang: string) {
+    console.log(lang);
+    this.languageService.setLaguage(lang as Languages);    
   }
 }

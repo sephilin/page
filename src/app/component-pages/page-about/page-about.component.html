@@ -1,0 +1,24 @@
+<app-page-title></app-page-title>
+<section class="background-content container">
+    <div class="row">
+        <div class="col-sm-8" [innerHTML]="model.leftBlock">
+        </div>
+        <div class="col-sm-4 d-flex justify-content-center">
+            <div class="card" style="width: 236px; height: 376px;">
+                <img alt="Vitor Menezes" width="236" height="236" id="img-profile"
+                    src="https://avatars2.githubusercontent.com/u/10223975?s=460&v=4">
+                <div class="card-body text-center">
+                    <h5 class="card-title">
+                        <strong>
+                            {{model.messageContact}}
+                        </strong>
+                    </h5>
+                    <a class="btn btn-primary" href="#">
+                        {{model.buttonContact}}
+                    </a>
+                </div>
+            </div>           
+        </div>
+    </div>
+
+</section>

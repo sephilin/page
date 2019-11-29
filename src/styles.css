@@ -9,6 +9,10 @@ body{
     -webkit-font-smoothing: antialiased;
 }
 
+.header-lang a{
+    cursor: pointer;
+}
+
 /* Header */
 app-page-header{
     background-color: #f8f9fa !important
@@ -43,14 +47,39 @@ app-page-header{
 
 /* Main Content */
 
-.background-content{
+.background-content , .portfolio-content, .background-contact{
     padding-top: 4rem;
     padding-bottom: 4rem;
     background-color: #fefefe;
 }
 
+.background-contact .panel{
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 10px;
+}
+
+.portfolio-content .card-body{  
+    padding-top: 4rem;
+    padding-bottom: 4rem; 
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    color: #fefefe;
+    width: 100%;   
+    padding: 1rem;
+}
+
+.portfolio-content .row .card-portfolio{   
+    margin-bottom: 25px;
+}
+
 .space-between{
     margin-top: 4rem;
+}
+
+.background-contact .panel .text-area-box{
+    width: 80%;
 }
 
 /* Footer */

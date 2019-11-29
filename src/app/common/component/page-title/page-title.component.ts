@@ -24,26 +24,27 @@ export class PageTitleComponent extends GenericClassComponent implements OnInit 
    }
 
   ngOnInit() {
-    this.model = this.getComponentRessource();
+    this.getComponentRessource();
 
     this.AddPageSubscriptions((subs : Array<Subscription>) => {
 
       // Subscription of languages
-      subs.push(this.languageService.getLanguage().subscribe(() => {
-        this.model = this.getComponentRessource();
+      subs.push(this.languageService.getLanguage().subscribe((lang) => {
+        this.SetRessourceLanguage(lang);
+        this.getComponentRessource();
         this.cd.markForCheck();
       }));  
       
        // Subscription of navigation
        subs.push(this.navigateService.registerMenuEventClick().subscribe(() => {
-        this.model = this.getComponentRessource();
+        this.getComponentRessource();
         this.cd.markForCheck();
       })); 
 
     });  
   }
 
-  private getComponentRessource(): any {    
-    return this.getRessource(this.route.snapshot)[this.navigateService.currentPage][this.tagNameSelector];
+  private getComponentRessource() {    
+    this.model = this.getRessource(this.route.snapshot)[this.navigateService.currentPage][this.tagNameSelector];
   }
 }
