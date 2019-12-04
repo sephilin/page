@@ -16,6 +16,10 @@ export class NavigateService {
   constructor(private eventService: EventService) {
   }
 
+  public NavigateToPageContact() {
+    this.NavigateTo("contact");
+  }
+
   public NavigateTo(page: PageTypes) {
     if (this.currentPage != page) {
       this.currentPage = page;

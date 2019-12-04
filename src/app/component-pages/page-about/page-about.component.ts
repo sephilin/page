@@ -1,9 +1,9 @@
-import { Component, OnInit, ElementRef, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ElementRef, ChangeDetectionStrategy, Output, EventEmitter, Injector } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { GenericClassComponent } from '../../core/toolbox/generic-class-component';
 import { PageNames } from '../../common/constants/pageNames';
 import { Subscription } from 'rxjs';
-import { LanguageService } from 'src/app/core/services/language-service';
+import { GenericPageComponent } from '../common/generic-page-component';
+
 
 class PageAboutModel {
   paragraphs: Array<string>
@@ -17,27 +17,26 @@ class PageAboutModel {
   templateUrl: './page-about.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PageAboutComponent extends GenericClassComponent implements OnInit {
-  public model: PageAboutModel;
+export class PageAboutComponent extends GenericPageComponent implements OnInit {
+  public model: PageAboutModel;  
 
-  constructor(private cd: ChangeDetectorRef,
+  constructor(private injector: Injector,
     private route: ActivatedRoute,
-    private languageService: LanguageService,
-    elem: ElementRef) {
-    super(elem);
+    elem: ElementRef,
+  ) {
+    super(injector, elem);
   }
 
   ngOnInit() {
     this.getComponentRessource();
-    
 
     this.AddPageSubscriptions((subs: Array<Subscription>) => {
-
       // Subscription of languages
-      subs.push(this.languageService.getLanguage().subscribe((lang) => {
+      subs.push(this.getService("LanguageService").getLanguage().subscribe((lang) => {
         this.SetRessourceLanguage(lang);
         this.getComponentRessource();
-        this.cd.markForCheck();
+        let serviceCD = this.getService("ChangeDetectorRef");       
+        serviceCD.markForCheck();    
       }));
 
     });
@@ -57,7 +56,5 @@ export class PageAboutComponent extends GenericClassComponent implements OnInit 
     });
 
     this.model.leftBlock = block;
-
-    console.log(this.model);
-  }
+  } 
 }

@@ -1,6 +1,9 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+
+
+import { RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module } from 'ng-recaptcha';
 
 import { DashboardComponent } from '../dashboard.component';
 import { DashboardRouting } from './dashboard.routing';
@@ -13,13 +16,20 @@ import { PageAboutComponent } from 'src/app/component-pages/page-about/page-abou
 import { PageTitleComponent } from 'src/app/common/component/page-title/page-title.component';
 
 
+
 @NgModule({
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ],
   imports: [
-    CommonModule,
-    DashboardRouting,
-    HttpClientModule
-    ],
-  providers: [],
+    CommonModule,    
+    DashboardRouting, 
+    ReactiveFormsModule,
+    RecaptchaV3Module    
+  ],
+  providers: [ 
+    { provide: RECAPTCHA_V3_SITE_KEY, useValue: '6Lc1rMUUAAAAAOvQPJ7Jt2tzX96yYK5-zGB1KrF9' }
+  ],
   declarations: [DashboardComponent,
     DashboardComponent,
     PageHeaderComponent,

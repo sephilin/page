@@ -10,91 +10,65 @@
 
             <div class="container panel">
                 <div>
-                    <div class="row">
+                    <div class="row" *ngIf="checkStatusSent">
+                        <div class="col form-group">
+                            <div class="alert alert-success" role="alert">
+                                Message sent!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="checkStatusSent">
+                        <div class="col form-group">
+                            <button (click)="initialize()" class="btn btn-secondary">
+                                <span id="activeMsg" *ngIf="checkStatusSent">
+                                    <i class="fa fa-send-o"></i>
+                                    Send another message?
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="row" *ngIf="!checkStatusSent">
                         <div class="col">
                             <div class="form-group">
                                 <label>Your Name
-                                    <input type="text" name="name" class="form-control" required="">
+                                    <input type="text" [formControl]="model.name" name="name" class="form-control"
+                                        required="">
                                 </label>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row" *ngIf="!checkStatusSent">
                         <div class="col">
                             <div class="form-group">
                                 <label>
                                     Your Email
-                                    <input type="email" name="email" class="form-control" required="">
+                                    <input type="email" [formControl]="model.email" name="email" class="form-control" required="">
                                 </label>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row" *ngIf="!checkStatusSent">
                         <div class="col">
                             <div class="form-group">
                                 <label class="text-area-box">
                                     Your Message
-                                    <textarea name="message" class="form-control" required="" rows="6"></textarea>
+                                    <textarea name="message" [formControl]="model.message" class="form-control" required="" rows="6"></textarea>
                                 </label>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+
+                    <div class="row" *ngIf="!checkStatusSent">
                         <div class="col form-group">
-                            <div class="g-recaptcha" data-sitekey="6LcveS4UAAAAACVgebkxNbL3LOD88uUUHSkBFej_"
-                                data-callback="onRecaptchaFilled" data-expired-callback="onRecaptchaExpired">
-                                <div style="width: 304px; height: 78px;">
-                                    <div><iframe
-                                            src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LcveS4UAAAAACVgebkxNbL3LOD88uUUHSkBFej_&amp;co=aHR0cHM6Ly9zaGVybWFuZGlnaXRhbC5jb206NDQz&amp;hl=fr&amp;v=75nbHAdFrusJCwoMVGTXoHoM&amp;size=normal&amp;cb=8p2pqltiu9b"
-                                            width="304" height="78" role="presentation" name="a-6wultk8yv9bh"
-                                            frameborder="0" scrolling="no"
-                                            sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe>
-                                    </div><textarea id="g-recaptcha-response" name="g-recaptcha-response"
-                                        class="g-recaptcha-response"
-                                        style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- <div id="recaptchaRequiredMessage" class="row hide">
-                        <div class="small-12 columns">
-                            <p class="text-red">
-                                reCAPTCHA is required.
-                            </p>
-                        </div>
-                    </div>
-                    <div id="successMsg" class="row margin-top-25 hide">
-                        <div class="small-12 columns">
-                            <div class="callout success">
-                                <p>
-                                    Message sent. I'll be in touch!
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="errorMsg" class="row margin-top-25 hide">
-                        <div class="small-12 columns">
-                            <div class="callout alert">
-                                <p>
-                                    An error occurred. Please try again later.
-                                </p>
-                            </div>
-                        </div>
-                    </div> -->
-                    <div class="row">
-                        <div class="col form-group">
-                            <button (click)="sendMessage()" class="btn btn-primary">
-                                <span id="activeMsg" *ngIf="true">
+                            <button (click)="sendData()" class="btn btn-primary">
+                                <span id="activeMsg" *ngIf="checkStatusSend">
                                     <i class="fa fa-envelope-o"></i>
                                     Send Message
                                 </span>
-                                <span id="sendingMsg" *ngIf="false">
+                                <span id="sendingMsg" *ngIf="checkStatusSending">
                                     <i class="fa fa-spinner fa-pulse"></i>
                                     Sending…
-                                </span>
-                                <span id="sentMsg" *ngIf="false">
-                                    <i class="fa fa-check"></i>
-                                    Message Sent
                                 </span>
                             </button>
                         </div>
@@ -113,9 +87,9 @@
                             {{model.messageContact}}
                         </strong>
                     </h5>
-                    <a class="btn btn-primary" href="#">
-                        {{model.buttonContact}}
-                    </a>
+                   <p>
+                       {{model.thanksContact}}                        
+                   </p>
                 </div>
             </div>
         </div>

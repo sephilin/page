@@ -12,7 +12,7 @@
             },
             "paragraphs": [
                 "<h2 id=\"background\">Background</h2>",
-                "<p> I started building static websites in high school, and since then I’ve developed expertise in software development, and business analysis. Today I’m passionate about scalable applications powered by the cloud. I have a good combination of skills and experience that allows me to implement my ideas in many kinds of environments and also deliver well-constructed applications. </p>",
+                "<p> I started building static websites in high school, and since then I’ve developed expertise in software development and business analysis. Today I’m passionate about scalable applications powered by the cloud. I have a good combination of skills and experience that allows me to implement new ideas in many kinds of environments and also deliver well-constructed applications. </p>",
                 "<p> I've been working over these years in great companies and sometimes working on freelance jobs in order to improve my skills, I am always motivated and excited about new programing languages, approaches and coding. ... </p>",
                 "<p> In my time off, I enjoy playing online games with my friends, see a movie or series on Netflix with my wife, maybe on Amazon Video, and try new stuffs like to implement a website using some new technology or mobile development. I live in Quebec City, Canada and like to take advantage of the restaurants and entertainment options in the area. </p> ",
                 "<p class=\"\"><a href=\"#\" class=\"btn btn-primary\">  Download my resume (144 KB)  </a></p>",
@@ -43,7 +43,7 @@
             },
             "paragraphs": [],
             "messageContact": "Let's discuss your next project.",
-            "buttonContact": "Get In Touch"
+            "thanksContact": "Thanks for the message, have a nive day!"
         },
         "footer": {}
     },

@@ -1,24 +1,21 @@
-import { Component, OnInit, ChangeDetectorRef, ElementRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, ElementRef, Injector } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NavigateService } from '../../core/services/navigate-service';
 import { PageTypes } from '../../common/constants/pageTypes';
-import { LanguageService } from '../../core/services/language-service';
-import { GenericClassComponent } from '../../core/toolbox/generic-class-component';
+
 import { Subscription } from 'rxjs';
+import { GenericPageMainComponent } from '../common/generic-page-main-component';
 
 @Component({
   selector: 'app-page-header',
   templateUrl: './page-header.component.html'
 })
-export class PageHeaderComponent extends GenericClassComponent implements OnInit {
+export class PageHeaderComponent extends GenericPageMainComponent implements OnInit {
   public model: any;
 
-  constructor(private cd: ChangeDetectorRef,
-    private route: ActivatedRoute,
-    private navigate: NavigateService,
-    private languageService: LanguageService,
+  constructor(private injector: Injector,  
+    private route: ActivatedRoute,   
     elem: ElementRef) {
-    super(elem);
+    super(injector, elem);
 
   }
 
@@ -49,6 +46,6 @@ export class PageHeaderComponent extends GenericClassComponent implements OnInit
   }
 
   public Navigate(route: PageTypes): void {
-    this.navigate.NavigateTo(route);
+    this.navigateService.NavigateTo(route);
   }
 }

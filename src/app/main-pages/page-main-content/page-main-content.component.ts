@@ -1,21 +1,19 @@
-import { Component, OnInit, ComponentFactoryResolver, ViewChild, ViewContainerRef, ComponentFactory, ElementRef } from '@angular/core';
-import { NavigateService } from '../../core/services/navigate-service';
-import { GenericClassComponent } from '../../core/toolbox/generic-class-component';
+import { Component, OnInit, ViewChild, ViewContainerRef, ComponentFactory, ElementRef, EventEmitter, Injector } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { GenericPageMainComponent } from '../common/generic-page-main-component';
 
 @Component({
   selector: 'app-page-main-content',
   templateUrl: './page-main-content.component.html'
 })
-export class PageMainContentComponent extends GenericClassComponent implements OnInit {
+export class PageMainContentComponent extends GenericPageMainComponent implements OnInit {
   @ViewChild('componentPlace', { read: ViewContainerRef, static: true }) entry: ViewContainerRef;
 
   componentRef: any;
 
-  constructor(private navigateService: NavigateService,
-    private resolver: ComponentFactoryResolver,
+  constructor(private injector: Injector,
     elem: ElementRef) {
-    super(elem);
+    super(injector, elem);
   }
 
   ngOnInit() {
@@ -46,6 +44,17 @@ export class PageMainContentComponent extends GenericClassComponent implements O
       let factory: ComponentFactory<unknown> = null;
       factory = this.resolver.resolveComponentFactory(this.navigateService.currentComponent);
       this.componentRef = this.entry.createComponent(factory);
+     
+      if(this.componentRef.instance.navigateToContact)
+      {
+        (this.componentRef.instance.navigateToContact as EventEmitter<any>).subscribe(
+          () => {
+            
+          })
+      }
+     
+      // (open)="onOpen($event)"
+
     }
   }
 }
