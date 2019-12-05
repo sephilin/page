@@ -1,9 +1,9 @@
-import { Component, OnInit, ElementRef, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
-import { GenericClassComponent } from 'src/app/core/toolbox/generic-class-component';
+import { Component, OnInit, ElementRef, ChangeDetectorRef, ChangeDetectionStrategy, Injector } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LanguageService } from 'src/app/core/services/language-service';
 import { NavigateService } from 'src/app/core/services/navigate-service';
 import { Subscription } from 'rxjs';
+import { GenericPageComponent } from 'src/app/component-pages/common/generic-page-component';
 
 
 @Component({
@@ -11,16 +11,14 @@ import { Subscription } from 'rxjs';
   templateUrl: './page-title.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PageTitleComponent extends GenericClassComponent implements OnInit {
+export class PageTitleComponent extends GenericPageComponent implements OnInit {
 
   model: any;
 
-  constructor(private cd: ChangeDetectorRef,
-    private route: ActivatedRoute, 
-    private languageService: LanguageService,
-    private navigateService: NavigateService,
+  constructor(private injector: Injector,
+    private route: ActivatedRoute,  
     elem: ElementRef) {
-    super(elem);
+    super(injector, elem);
    }
 
   ngOnInit() {
@@ -29,22 +27,22 @@ export class PageTitleComponent extends GenericClassComponent implements OnInit 
     this.AddPageSubscriptions((subs : Array<Subscription>) => {
 
       // Subscription of languages
-      subs.push(this.languageService.getLanguage().subscribe((lang) => {
+      subs.push(this.getService("LanguageService").getLanguage().subscribe((lang) => {
         this.SetRessourceLanguage(lang);
         this.getComponentRessource();
-        this.cd.markForCheck();
+        this.getService("ChangeDetectorRef").markForCheck();
       }));  
       
        // Subscription of navigation
-       subs.push(this.navigateService.registerMenuEventClick().subscribe(() => {
+       subs.push(this.getService("NavigateService").registerMenuEventClick().subscribe(() => {
         this.getComponentRessource();
-        this.cd.markForCheck();
+        this.getService("ChangeDetectorRef").markForCheck();
       })); 
 
     });  
   }
 
   private getComponentRessource() {    
-    this.model = this.getRessource(this.route.snapshot)[this.navigateService.currentPage][this.tagNameSelector];
+    this.model = this.getRessource(this.route.snapshot)[this.getService("NavigateService").currentPage][this.tagNameSelector];
   }
 }

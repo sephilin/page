@@ -6,12 +6,12 @@ import { Observable } from 'rxjs';
 })
 export class EventService {
     
-    public navigateClickObserver: Observable<any>;     
+    public navigateClickObserver: Observable<any>;         
 
     constructor() { 
-       this.navigateClickObserver = new EventEmitter();             
+       this.navigateClickObserver = new EventEmitter(); 
     }
-
+    
     public navigateClick()
     {        
         (this.navigateClickObserver as EventEmitter<any>).emit();

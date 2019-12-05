@@ -4,9 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
-    "heroku-postbuild": "ng build --prod",
-    "back4app-build": "ng build --base-href",
+    "build": "ng build --base-href",
+    "heroku-postbuild": "ng build --prod",  
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

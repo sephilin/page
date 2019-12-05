@@ -1,3 +1,5 @@
+import { about, contact, portfolio } from './globalConstants';
+
 function strEnum<T extends string>(o: Array<T>): {[K in T]: K} {
     return o.reduce((res, key) => {
       res[key] = key;
@@ -6,7 +8,7 @@ function strEnum<T extends string>(o: Array<T>): {[K in T]: K} {
   }
 
   export const PageNames = strEnum([
-    'about',
-    'portfolio',
-    'contact'   
+    about,
+    portfolio,
+    contact   
   ])

@@ -1,0 +1,5 @@
+{
+    "appService.showBuildDuringDeployPrompt": false,
+    "appService.defaultWebAppToDeploy": "/subscriptions/a07eac52-0c39-4be3-aa50-03e69a73b97a/resourceGroups/app-angular/providers/Microsoft.Web/sites/vitor-menezes",
+    "appService.deploySubpath": "dist"
+}

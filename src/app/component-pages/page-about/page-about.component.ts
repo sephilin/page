@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ChangeDetectionStrategy, Output, EventEmitter, Injector } from '@angular/core';
+import { Component, OnInit, ElementRef, ChangeDetectionStrategy, Injector } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PageNames } from '../../common/constants/pageNames';
 import { Subscription } from 'rxjs';
@@ -40,6 +40,11 @@ export class PageAboutComponent extends GenericPageComponent implements OnInit {
       }));
 
     });
+  }
+
+  public NatigateToPageContact()
+  {
+    this.getService("NavigateService").NavigateTo(PageNames.contact);
   }
 
   private getComponentRessource() {

@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ViewContainerRef, ComponentFactory, ElementRef, EventEmitter, Injector } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { GenericPageMainComponent } from '../common/generic-page-main-component';
+import { ComponentTypeMap } from 'src/app/common/constants/componentTypeMap';
 
 @Component({
   selector: 'app-page-main-content',
@@ -42,19 +43,8 @@ export class PageMainContentComponent extends GenericPageMainComponent implement
       this.entry.clear();
 
       let factory: ComponentFactory<unknown> = null;
-      factory = this.resolver.resolveComponentFactory(this.navigateService.currentComponent);
-      this.componentRef = this.entry.createComponent(factory);
-     
-      if(this.componentRef.instance.navigateToContact)
-      {
-        (this.componentRef.instance.navigateToContact as EventEmitter<any>).subscribe(
-          () => {
-            
-          })
-      }
-     
-      // (open)="onOpen($event)"
-
+      factory = this.resolver.resolveComponentFactory(ComponentTypeMap[this.navigateService.currentPage]);
+      this.componentRef = this.entry.createComponent(factory);     
     }
   }
 }
