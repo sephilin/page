@@ -22,12 +22,12 @@ import { PageTitleComponent } from 'src/app/common/component/page-title/page-tit
     CUSTOM_ELEMENTS_SCHEMA
   ],
   imports: [
-    CommonModule,    
-    DashboardRouting, 
+    CommonModule,
+    DashboardRouting,
     ReactiveFormsModule,
-    RecaptchaV3Module    
+    RecaptchaV3Module
   ],
-  providers: [ 
+  providers: [
     { provide: RECAPTCHA_V3_SITE_KEY, useValue: '6Lc1rMUUAAAAAOvQPJ7Jt2tzX96yYK5-zGB1KrF9' }
   ],
   declarations: [DashboardComponent,
