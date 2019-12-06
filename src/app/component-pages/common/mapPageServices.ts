@@ -18,7 +18,7 @@ export const MapPageServices = {
     ["app-page-contact-me"]: [
         ChangeDetectorRef,
         ReCaptchaV3Service,
-        CaptchaService        
+        CaptchaService      
     ],
     ["app-page-portfolio"]: [
         ReCaptchaV3Service,

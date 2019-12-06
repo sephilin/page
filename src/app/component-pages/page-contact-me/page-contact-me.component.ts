@@ -1,9 +1,7 @@
 import { Component, OnInit, ElementRef, ChangeDetectorRef, ChangeDetectionStrategy, ComponentFactoryResolver, Injector } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PageNames } from 'src/app/common/constants/pageNames';
-import { ReCaptchaV3Service } from 'ng-recaptcha';
 import { Subscription } from 'rxjs';
-import { CaptchaService } from 'src/app/core/services/captcha-service';
 import { FormControl } from '@angular/forms';
 import { GenericPageComponent } from '../common/generic-page-component';
 
@@ -77,7 +75,7 @@ export class PageContactMeComponent extends GenericPageComponent implements OnIn
       this.model.status = statusSending;
 
       console.log(this.model);
-
+      
       // const subscribeCaptcha =  this.getService("ReCaptchaV3Service").execute('sendData')
       // .subscribe((token) => this.resolved(token));
 
@@ -87,7 +85,7 @@ export class PageContactMeComponent extends GenericPageComponent implements OnIn
 
       setTimeout(() => {
         console.log(statusSent);
-        this.model.status = statusSent;
+        this.model.status = statusSent;     
         this.getService("ChangeDetectorRef").markForCheck();    
       }, 5000);
 
