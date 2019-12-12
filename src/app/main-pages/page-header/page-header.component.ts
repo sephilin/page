@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef, ElementRef, Injector } from '@angular/core';
+import { Component, OnInit, ElementRef, Injector } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PageTypes } from '../../common/constants/pageTypes';
 

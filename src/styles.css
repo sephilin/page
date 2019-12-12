@@ -9,6 +9,12 @@ body{
     -webkit-font-smoothing: antialiased;
 }
 
+.container-fullscreen{
+    width: 100% !important;
+    margin: 0 !important; 
+    padding: 0 !important;   
+}
+
 .header-lang a{
     cursor: pointer;
 }
@@ -80,6 +86,60 @@ app-page-header{
 
 .background-contact .panel .text-area-box{
     width: 80%;
+}
+
+/* Home page */
+
+.section-presentation {    
+    background-image: url('/assets/software-development-icon.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;   
+    background-size: 27.5rem;
+    background-position: 50% 5.4rem;
+}
+
+.section-presentation .row{
+    margin: 0 !important;     
+}
+
+.section-presentation .title {
+    color: #fff; 
+}
+
+.section-presentation .bg-color{    
+    background-color: rgba(1, 22, 53, 0.6);    
+    padding: 10rem 0; 
+}
+
+.section-presentation-description .text-white{
+    color: #fff; 
+}
+
+.section-presentation-description .row{
+    margin: 0 !important;     
+}
+
+.section-presentation-description .bg-color{
+    background-color:  rgba(1, 22, 53, 1);  
+    padding: 5rem 8rem; 
+}
+
+.section-presentation-description .margin-b-35{
+   margin-bottom: 35px;
+}
+
+.section-presentation-description .margin-b-6rem{
+    margin-bottom: 6rem;
+}
+
+.section-presentation-description .description-block p{
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.section-presentation-description .description-block h5, i{
+    color: #b0c4de;
+    font-weight: 700;
 }
 
 /* Footer */

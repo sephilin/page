@@ -10,6 +10,11 @@ export const MapPageServices = {
         LanguageService,
         NavigateService
     ],
+    ["app-page-home"]: [
+        ChangeDetectorRef,
+        LanguageService,
+        NavigateService       
+    ],
     ["app-page-about"]: [
         ChangeDetectorRef,
         LanguageService,

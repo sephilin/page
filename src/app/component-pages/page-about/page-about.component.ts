@@ -1,8 +1,8 @@
 import { Component, OnInit, ElementRef, ChangeDetectionStrategy, Injector } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PageNames } from '../../common/constants/pageNames';
 import { Subscription } from 'rxjs';
 import { GenericPageComponent } from '../common/generic-page-component';
+import { contact, about } from 'src/app/common/constants/globalConstants';
 
 
 class PageAboutModel {
@@ -44,11 +44,11 @@ export class PageAboutComponent extends GenericPageComponent implements OnInit {
 
   public NatigateToPageContact()
   {
-    this.getService("NavigateService").NavigateTo(PageNames.contact);
+    this.getService("NavigateService").NavigateTo(contact);
   }
 
   private getComponentRessource() {
-    this.model = this.getRessource(this.route.snapshot)[PageNames.about] as PageAboutModel;
+    this.model = this.getRessource(this.route.snapshot)[about] as PageAboutModel;
     this.createLeftBlock();
   }
 

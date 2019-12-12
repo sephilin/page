@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ViewContainerRef, ComponentFactory, ElementRef, EventEmitter, Injector } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewContainerRef, ComponentFactory, ElementRef, Injector } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { GenericPageMainComponent } from '../common/generic-page-main-component';
 import { ComponentTypeMap } from 'src/app/common/constants/componentTypeMap';

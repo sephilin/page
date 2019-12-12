@@ -5,6 +5,8 @@
             "menu2": "Portfolio",
             "menu3": "Contact"
         },
+        "home": {           
+        },
         "about": {
             "app-page-title": {
                 "pageTitle": "About",

@@ -1,9 +1,9 @@
 import { Component, OnInit, ElementRef, ChangeDetectorRef, ChangeDetectionStrategy, ComponentFactoryResolver, Injector } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PageNames } from 'src/app/common/constants/pageNames';
 import { Subscription } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { GenericPageComponent } from '../common/generic-page-component';
+import { contact } from 'src/app/common/constants/globalConstants';
 
 class PageContactModel {
   name: FormControl
@@ -43,7 +43,7 @@ export class PageContactMeComponent extends GenericPageComponent implements OnIn
   }
 
   private getComponentRessource() {
-    this.model = this.getRessource(this.route.snapshot)[PageNames.contact] as PageContactModel;
+    this.model = this.getRessource(this.route.snapshot)[contact] as PageContactModel;
     this.initialize();  
   }
 
