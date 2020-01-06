@@ -20,6 +20,7 @@ import { PagePortfolioComponent } from 'src/app/component-pages/page-portfolio/p
 import { PageContactMeComponent } from 'src/app/component-pages/page-contact-me/page-contact-me.component';
 import { PageAboutComponent } from 'src/app/component-pages/page-about/page-about.component';
 import { SectionPresentationComponent } from 'src/app/component-pages/page-home/common/section-presentation/section-presentation.component';
+import { SectionPortfolioComponent } from 'src/app/component-pages/page-home/common/section-portfolio/section-portfolio.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { SectionPresentationComponent } from 'src/app/component-pages/page-home/
     PageContactMeComponent,
     PageAboutComponent,
     PageTitleComponent,
-    SectionPresentationComponent
+    SectionPresentationComponent,
+    SectionPortfolioComponent
   ],
   entryComponents: [
     PageHomeComponent,

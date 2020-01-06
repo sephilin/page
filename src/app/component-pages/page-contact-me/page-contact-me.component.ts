@@ -73,20 +73,15 @@ export class PageContactMeComponent extends GenericPageComponent implements OnIn
   public sendData(): void {
     if (this.model.status === statusSend) {
       this.model.status = statusSending;
-
-      console.log(this.model);
       
-      // const subscribeCaptcha =  this.getService("ReCaptchaV3Service").execute('sendData')
-      // .subscribe((token) => this.resolved(token));
 
-      // this.AddPageSubscriptions((subs : Array<Subscription>) => {
-      //   subs.push(subscribeCaptcha);
-      // });
+      // code to send message.     
 
       setTimeout(() => {
-        console.log(statusSent);
+        
         this.model.status = statusSent;     
-        this.getService("ChangeDetectorRef").markForCheck();    
+        this.getService("ChangeDetectorRef").markForCheck(); 
+
       }, 5000);
 
     }

@@ -51,6 +51,10 @@ app-page-header{
     padding: 1.25em 0;
 }
 
+.navbar-header span, a{
+    cursor: pointer;
+}
+
 /* Main Content */
 
 .background-content , .portfolio-content, .background-contact{
@@ -140,6 +144,10 @@ app-page-header{
 .section-presentation-description .description-block h5, i{
     color: #b0c4de;
     font-weight: 700;
+}
+
+.section-portfolio .section-title{
+    margin-bottom: 35px;
 }
 
 /* Footer */
